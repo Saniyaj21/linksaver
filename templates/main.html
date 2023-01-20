@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="./style/icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./style/icon.png">
+    {% comment %} <link rel="shortcut icon" href="./style/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./style/icon.png"> {% endcomment %}
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     <header class="header">
         <nav>
             <a href="/"><img src="{% static 'style/Link Saver.svg' %}" alt="Logo"></a>
-            <div class="btnProfile"><i class="fa-solid fa-user"></i>Name
+            <div class="btnProfile">Name
                 <ul class="loginout">
                     <a href="#">
                         <li>
@@ -39,11 +39,11 @@
 
                     {% if request.user.is_authenticated %}
                     <a href="{% url 'logout' %}">
-                        <li><i class="fa-solid fa-right-from-bracket"></i>Log Out</li>
+                        <li>Log Out</li>
                     </a>
                     {% else %}
                     <a href="{% url 'login' %}">
-                        <li><i class="fa-solid fa-right-to-bracket"></i>Log In</li>
+                        <li>Log In</li>
                     </a>
                     {%endif %}
                 </ul>
@@ -58,7 +58,7 @@
         <form action=""  method="GET">
             {% csrf_token %}
             <input type="text" name="q" id="SearchLink" placeholder="Seach">
-            <button class="SearchBtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="SearchBtn" type="submit"></button>
         </form>
         {% for message  in messages %}
         {{message}}
@@ -115,8 +115,8 @@
     <!-- Footer starts  -->
     <footer class="footer">
         <div class="foot">
-            <a href="/" class="btn"><i class="fa-solid fa-eye"></i>&nbsp; Show links</a>
-            <a href="{% url 'createlink' %}" class="btn"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Save link</a>
+            <a href="/" class="btn">&nbsp; Show links</a>
+            <a href="{% url 'createlink' %}" class="btn">&nbsp; Save link</a>
         </div>
     </footer>
     <!-- Footer ends -->
